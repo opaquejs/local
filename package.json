@@ -10,13 +10,13 @@
     "typescript": "^3.9.3"
   },
   "devDependencies": {
+    "@opaquejs/opaque": "^0.9.6",
     "@types/jest": "^25.2.3",
     "jest": "^26.0.1",
-    "ts-jest": "^26.0.0",
-    "@opaquejs/opaque": "^0.1.0"
+    "ts-jest": "^26.0.0"
   },
   "peerDependencies": {
-    "@opaquejs/opaque": "^0.1.0"
+    "@opaquejs/opaque": "^0.8.1"
   },
   "scripts": {
     "test": "jest --config jest.config.js",

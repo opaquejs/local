@@ -1,5 +1,1 @@
-import { LocalModel } from './LocalModel'
-
-export {
-    LocalModel
-}
+export * from './LocalAdapter'
