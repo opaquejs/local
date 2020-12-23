@@ -32,7 +32,7 @@ describe('LocalAdapter', () => {
     test('keeps given id on create', async () => {
         await Task.$adapter.create({ id: '12' })
 
-        expect(await Task.$adapter.read({ id: { $eq: '12' } })).toHaveLength(1)
+        expect(await Task.$adapter.read({ id: { _eq: '12' } })).toHaveLength(1)
     })
 
 })

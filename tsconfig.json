@@ -6,7 +6,7 @@
         "outDir": "./lib",
         "strict": true,
         "experimentalDecorators": true,
-        "downlevelIteration": true
+        "downlevelIteration": true,
     },
     "include": [
         "src",

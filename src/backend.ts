@@ -20,11 +20,11 @@ export const matchesQuery = <T extends Queryable>(object: T, query: Query<T>) =>
         if (!comparisons) {
             continue
         }
-        if (key == '$or' && Array.isArray(query['$or'])) {
-            if (!query['$or'].map(subquery => matchesQuery(object, subquery)).includes(true)) {
+        if (key == '_or' && Array.isArray(query['_or'])) {
+            if (!query['_or'].map(subquery => matchesQuery(object, subquery)).includes(true)) {
                 return false
             }
-        } else if (!key.startsWith('$')) {
+        } else if (!key.startsWith('_')) {
             if (!matchesComparisons(value, comparisons)) {
                 return false
             }
@@ -35,11 +35,11 @@ export const matchesQuery = <T extends Queryable>(object: T, query: Query<T>) =>
 
 export const queryCollection = <T extends Queryable>(collection: T[], query: RootQuery<T>): T[] => {
     collection = collection.filter(item => matchesQuery(item, query))
-    if (query.$skip != undefined) {
-        collection = collection.slice(Math.max(0, query.$skip))
+    if (query._skip != undefined) {
+        collection = collection.slice(Math.max(0, query._skip))
     }
-    if (query.$limit != undefined) {
-        collection = collection.slice(0, Math.max(0, query.$limit))
+    if (query._limit != undefined) {
+        collection = collection.slice(0, Math.max(0, query._limit))
     }
     return collection
 }
@@ -50,11 +50,11 @@ export type ComparisonFunctions<Value> = {
 }
 
 export const comparisonFunctions = <Value>(left: Value) => ({
-    $eq: (right) => left == right,
-    $gt: right => left > right,
-    $gte: right => left >= right,
-    $lt: right => left < right,
-    $lte: right => left <= right,
-    $ne: right => left != right,
-    $in: right => right.includes(left),
+    _eq: (right) => left == right,
+    _gt: right => left > right,
+    _gte: right => left >= right,
+    _lt: right => left < right,
+    _lte: right => left <= right,
+    _ne: right => left != right,
+    _in: right => right.includes(left),
 } as ComparisonFunctions<Value>)
