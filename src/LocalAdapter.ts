@@ -24,12 +24,15 @@ export class LocalOpaqueAdapter<Model extends typeof OpaqueModel> implements Opa
     }
 
     async update(query: RootQuery<ModelAttributes<InstanceType<Model>>>, data: ModelAttributes<InstanceType<Model>>) {
+        const result: ModelAttributes<InstanceType<Model>>[] = []
         for (const { [this.model.primaryKey as keyof ModelAttributes<InstanceType<Model>>]: id } of await this.read(query)) {
-            const previous = this.storage.get(id as IdType)
+            const previous = this.storage.get(id as IdType)!
+            result.push(previous)
             for (const key in data) {
                 (previous as any)[key] = (data as any)[key] as any
             }
         }
+        return result
     }
 
     async read(query: RootQuery<ModelAttributes<InstanceType<Model>>>) {
