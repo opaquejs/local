@@ -1,8 +1,8 @@
 import { v4 } from "uuid"
-import { OpaqueModel, OpaqueAdapter, ModelAttributes, IdType, RootQuery, Constructor } from "@opaquejs/opaque"
+import { OpaqueModel, ModelAttributes, IdType, RootQuery, Constructor, AdapterContract } from "@opaquejs/opaque"
 import { queryCollection } from "./backend"
 
-export class LocalOpaqueAdapter<Model extends typeof OpaqueModel> implements OpaqueAdapter<Model> {
+export class LocalOpaqueAdapter<Model extends typeof OpaqueModel> implements AdapterContract {
     storage: Map<IdType, ModelAttributes<InstanceType<Model>>> = new Map()
 
     constructor(public model: Model) {
