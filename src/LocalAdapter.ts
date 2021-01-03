@@ -39,7 +39,3 @@ export class LocalOpaqueAdapter<Model extends typeof OpaqueModel> implements Ada
         return queryCollection([...this.storage.values()], query)
     }
 }
-
-export const local = <T extends Constructor<OpaqueModel>>(base: T) => class RuntimeModel extends base {
-    static $adapterConstructor = LocalOpaqueAdapter
-}

@@ -1,15 +1,19 @@
 import { attribute, OpaqueModel } from '@opaquejs/opaque'
-import { local } from '../LocalAdapter'
+import { LocalOpaqueAdapter } from '../LocalAdapter'
 
 
 describe('LocalAdapter', () => {
 
-    class Task extends local(OpaqueModel) {
+    class Task extends OpaqueModel {
         @attribute({ primaryKey: true })
         public id?: string = undefined
 
         @attribute()
         public title?: string
+
+        static adapter() {
+            return new LocalOpaqueAdapter(this)
+        }
     }
 
     test('automatic id', async () => {
