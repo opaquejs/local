@@ -16,7 +16,7 @@
     "ts-jest": "^26.0.0"
   },
   "peerDependencies": {
-    "@opaquejs/opaque": "^0.13.1"
+    "@opaquejs/opaque": "^0.14.2"
   },
   "scripts": {
     "test": "jest --config jest.config.js",

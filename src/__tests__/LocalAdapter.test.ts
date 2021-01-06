@@ -28,7 +28,7 @@ describe('LocalAdapter', () => {
         expect(task.$isPersistent).toBe(true)
 
         const othertask = new Task()
-        othertask.$setAndSave({ title: 'lel' })
+        othertask.$setAttributesAndSave({ title: 'lel' })
         expect(othertask.id).not.toBe(task.id)
 
     })
