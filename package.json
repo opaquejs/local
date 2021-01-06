@@ -10,7 +10,7 @@
     "typescript": "^3.9.3"
   },
   "devDependencies": {
-    "@opaquejs/opaque": "^0.13.1",
+    "@opaquejs/opaque": "^0.14.2",
     "@types/jest": "^25.2.3",
     "jest": "^26.0.1",
     "ts-jest": "^26.0.0"
