@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "dependencies": {
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
     "@opaquejs/opaque": "^0.14.2",
